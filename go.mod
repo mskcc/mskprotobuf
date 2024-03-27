@@ -1,3 +1,3 @@
-module github.com/mskcc/protobuf
+module github.com/mskcc/mskprotobuf
 
 go 1.19
