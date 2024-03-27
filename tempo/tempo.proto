@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package cbiomodels;
+option go_package = "github.com/averyniceday/go-mpath-proto/tempo";
+
+message Event {
+  string chromosome = 1;
+  int32 startPosition = 2;
+  int32 endPosition = 3;
+  string refAllele = 4;
+  string tumorSeqAllele1 = 5;
+  string tumorSeqAllele2 = 6;
+}
+
+message TempoMessage {
+  string cmoSampleId = 1;
+  string normalCmoSampleId = 2;
+  string pipelineVersion = 3;
+  repeated Event events = 4;
+}
