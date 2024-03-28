@@ -1,7 +1,5 @@
 syntax = "proto3";
-
 package cbiomodels;
-option go_package = "github.com/averyniceday/go-mpath-proto/tempo";
 
 message Event {
   string chromosome = 1;
@@ -10,6 +8,60 @@ message Event {
   string refAllele = 4;
   string tumorSeqAllele1 = 5;
   string tumorSeqAllele2 = 6;
+
+  message Neoantigen {
+    string neo_maf_identifier_key = 1;
+    string neo_best_icore_peptide = 2;
+    double neo_best_rank = 3;
+    double neo_best_binding_affinity = 4;
+    string neo_best_binder_class = 5;
+    bool neo_best_is_in_wt_peptidome = 6;
+    string neo_best_algorithm = 7;
+    string neo_best_hla_allele = 8;
+    int32 neo_n_peptides_evaluated = 9;
+    int32 neo_n_strong_binders = 10;
+    int32 neo_n_weak_binders = 11;
+  }
+
+  message Facets {
+    int32 tcn = 1;
+    int32 lcn = 2;
+    double cf = 3;
+    double purity = 4;
+    int32 expected_alt_copies = 5;
+    double ccf_expected_copies = 6;
+    double ccf_expected_copies_lower = 7;
+    double ccf_expected_copies_upper = 8;
+    double ccf_expected_copies_prob95 = 9; 
+    double ccf_expected_copies_prob90 = 10;
+    string clonality = 11;
+  }
+
+  message GetBaseCountsMultiSample {
+    int32 t_alt_count_raw = 1;
+    int32 n_alt_count_raw = 2;
+    int32 t_alt_count_raw_fwd = 3;
+    int32 n_alt_count_raw_fwd = 4;
+    int32 t_alt_count_raw_rev = 5;
+    int32 n_alt_count_raw_rev = 6;
+    int32 t_ref_count_raw = 7;
+    int32 n_ref_count_raw = 8;
+    int32 t_ref_count_raw_fwd = 9;
+    int32 n_ref_count_raw_fwd = 10;
+    int32 t_ref_count_raw_rev = 11;
+    int32 n_ref_count_raw_rev = 12;
+    int32 t_depth_raw = 13;
+    int32 n_depth_raw = 14;
+    int32 t_depth_raw_fwd = 15;
+    int32 n_depth_raw_fwd = 16;
+    int32 t_depth_raw_rev = 17;
+    int32 n_depth_raw_rev = 18;
+  }
+
+  Neoantigen neoantigen = 7;
+  Facets facets = 8;
+  GetBaseCountsMultiSample getbasecountsmultisample = 9;
+
 }
 
 message TempoMessage {
