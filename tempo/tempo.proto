@@ -58,9 +58,24 @@ message Event {
     int32 n_depth_raw_rev = 18;
   }
 
+  message ZygosityAnnotation {
+    int32 num_ref_copies = 1;
+    int32 num_alt_copies = 2;
+    double expected_t_alt_freq_lower = 3;
+    double expected_t_alt_freq_upper = 4;
+    bool tumor_vaf_cn_concordance = 5;
+    string allelic_imbalance = 6;
+    bool loss_of_heterozygosity = 7;
+    string zygosity_flag = 8;
+    // expected_t_alt_freq_lower_99 = 9;
+    // expected_t_alt_freq_upper_99 = 10;
+    // tumor_vaf_cn_concordance_99 = 11;
+  }
+
   Neoantigen neoantigen = 7;
   Facets facets = 8;
   GetBaseCountsMultiSample getbasecountsmultisample = 9;
+  ZygosityAnnotation zygosityannotation = 10;
 
 }
 
