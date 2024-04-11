@@ -1,5 +1,6 @@
 syntax = "proto3";
 package cbiomodels;
+option go_package = "github.com/mskcc/mskprotobuf";
 
 message Event {
   string chromosome = 1;
